@@ -1,0 +1,44 @@
+---
+swagger: "2.0"
+info:
+  title: Brand Intent v1
+  description: >
+    API specification for the Brand Intent.
+  version: 1.0.1
+  contact:
+    email: ashwanth@indix.com
+    name: Ashwanth
+basePath: "/v1"
+
+paths:
+  /health:
+    get:
+      tags:
+        - "system"
+      summary: "Health of the system"
+      description: >
+        Returns a OK message if the service is running.
+      produces:
+        - "text/plain"
+      responses:
+        200:
+          description: Returns a OK message if the service is running.
+
+  /predict/brand:
+    get:
+      tags:
+      - "brand"
+      summary: "Returns the list of brands predicted for the query"
+      description: >
+        Returns the list of brands as predicted by the model associated with the <code>q</code> input.
+      produces:
+        - "application/json"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "query string"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: Returns the list of versions for a given url that's available in finder-storage.
